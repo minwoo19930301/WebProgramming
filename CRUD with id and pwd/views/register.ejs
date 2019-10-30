@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title><%=title%></title>
+    </head>
+    <body>
+        <form id="registrationForm" action="/registerProcess" method="post">
+            <table align="center" width="700pt" border="1" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td colspan="2" align="center" bgcolor="blue" height="40" style="color:white"><b>회원가입</b></td> 
+              </tr> 
+              <tr> 
+                <td bgcolor="skyblue">아이디 :</td> 
+                <td><input id="loginId" name="id" type="text"></td> 
+              </tr> 
+              <tr> 
+                <td bgcolor="skyblue" style="height: 24px;">비밀번호 :</td> 
+                <td style="height: 24px;"><input id="loginPwd" name="password" type="password"></td> 
+              </tr>
+            </table> 
+            <bSr/> 
+            <!-- <center> <input type="submit" value="로그인"> </center>  -->
+            <center> <input id='btnSubmit' type="button" value="가입하기"> </center>
+            </form>
+    </body>
+    <script>
+        document.getElementById('btnSubmit').onclick = function() {
+          // alert('<%=title%>');
+          var loginId = document.getElementById('loginId').value;
+          var password = document.getElementById('loginPwd').value;
+          if(loginId.length < 3) {
+            alert('아이디 3자 이상');
+            return;
+          }
+          if(password.length < 3) {
+            alert('비밀번호 3자 이상');
+            return;
+          }
+          document.getElementById('registrationForm').submit();
+        };
+      </script>
+</html>
